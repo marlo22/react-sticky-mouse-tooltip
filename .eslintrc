@@ -1,0 +1,22 @@
+{
+  "extends": ["airbnb"],
+  "parser": "babel-eslint",
+  "plugins": [
+    "babel"
+  ],
+  "rules": {
+    "babel/new-cap": 1,
+    "babel/camelcase": 1,
+    "babel/no-invalid-this": 1,
+    "babel/object-curly-spacing": 0,
+    "babel/quotes": [1, "single"],
+    "babel/semi": 1,
+    "babel/no-unused-expressions": 1,
+    "babel/valid-typeof": 1,
+    "react/require-default-props": 0
+  },
+  "globals": {
+    "document": false,
+    "window": false
+  }
+}
