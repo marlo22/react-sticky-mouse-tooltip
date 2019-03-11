@@ -5,17 +5,18 @@ React tooltip component that follow mouse cursor. You can pass as this tooltip c
   <img src="preview.gif" alt="Component functionality preview">
 </p>
 
-## Attributes
-| Attribute | Description | Type | Required | Default value |
-| --- | --- | --- | --- | --- |
-| visible | Visibility of component. | ```boolean``` | No | ```true``` |
-| offsetX | Offset along X axis. | ```number``` | No | ```0``` |
-| offsetY | Offset along Y axis. | ```number``` | No | ```0``` |
-| className | Tooltip ```div``` class name. | ```string``` | No | - |
-| style | Styles properties of tooltip ```div```. | ```object``` | No | - |
+## Installation
+`npm install react-sticky-mouse-tooltip --save`
+
+or
+
+`yarn add react-sticky-mouse-tooltip`
 
 ## Example
 ```js
+import React from 'react';
+import MouseTooltip from 'react-sticky-mouse-tooltip';
+
 class Preview extends React.Component {
   state = {
     isMouseTooltipVisible: false,
@@ -43,6 +44,15 @@ class Preview extends React.Component {
   }
 }
 ```
+
+## Attributes
+| Attribute | Description | Type | Required | Default value |
+| --- | --- | --- | --- | --- |
+| visible | Visibility of component. | ```boolean``` | No | ```true``` |
+| offsetX | Offset along X axis. | ```number``` | No | ```0``` |
+| offsetY | Offset along Y axis. | ```number``` | No | ```0``` |
+| className | Tooltip ```div``` class name. | ```string``` | No | - |
+| style | Styles properties of tooltip ```div```. | ```object``` | No | - |
 
 ## License
 MIT
