@@ -13,7 +13,8 @@
     "babel/semi": 1,
     "babel/no-unused-expressions": 1,
     "babel/valid-typeof": 1,
-    "react/require-default-props": 0
+    "react/require-default-props": 0,
+    "import/no-extraneous-dependencies": 0
   },
   "globals": {
     "document": false,

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'; // eslint-disable-line import/no-extraneous-dependencies
+import PropTypes from 'prop-types';
 
 class MouseTooltip extends React.PureComponent {
   static defaultProps = {
