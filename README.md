@@ -1,5 +1,5 @@
 # react-sticky-mouse-tooltip
-React tooltip component that follow mouse cursor. You can pass as this tooltip children any HTML element or other React component.
+React tooltip component that follow mouse cursor. You can pass as children any HTML element or other React component.
 
 <p align="center">
   <img src="preview.gif" alt="Component functionality preview">
