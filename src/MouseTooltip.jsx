@@ -8,11 +8,18 @@ class MouseTooltip extends React.PureComponent {
     offsetY: 0,
   };
 
+  constructor(props) {
+    super(props);
+    this.containerRef = React.createRef();
+  }
+
   state = {
     xPosition: 0,
     yPosition: 0,
     mouseMoved: false,
     listenerActive: false,
+    shouldFlipHorizontally: false,
+    shouldFlipVertically: false,
   };
 
   componentDidMount() {
@@ -28,10 +35,18 @@ class MouseTooltip extends React.PureComponent {
   }
 
   getTooltipPosition = ({ clientX: xPosition, clientY: yPosition }) => {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const containerWidth = this.containerRef.current.clientWidth;
+    const containerHeight = this.containerRef.current.clientHeight;
+    const shouldFlipHorizontally = (xPosition + containerWidth > screenWidth);
+    const shouldFlipVertically = (yPosition + containerHeight > screenHeight);
     this.setState({
       xPosition,
       yPosition,
       mouseMoved: true,
+      shouldFlipHorizontally,
+      shouldFlipVertically,
     });
   };
 
@@ -56,14 +71,21 @@ class MouseTooltip extends React.PureComponent {
   };
 
   render() {
+    const left = (this.state.shouldFlipHorizontally
+      ? this.state.xPosition - this.containerRef.current.clientWidth - this.props.offsetX
+      : this.state.xPosition + this.props.offsetX);
+    const top = (this.state.shouldFlipVertically
+      ? this.state.yPosition - this.containerRef.current.clientHeight - this.props.offsetY
+      : this.state.yPosition + this.props.offsetY);
     return (
       <div
         className={this.props.className}
+        ref={this.containerRef}
         style={{
           display: this.props.visible && this.state.mouseMoved ? 'block' : 'none',
           position: 'fixed',
-          top: this.state.yPosition + this.props.offsetY,
-          left: this.state.xPosition + this.props.offsetX,
+          top,
+          left,
           ...this.props.style,
         }}
       >
