@@ -13,35 +13,34 @@ or
 `yarn add react-sticky-mouse-tooltip`
 
 ## Example
-```js
+```typescript
 import React from 'react';
 import MouseTooltip from 'react-sticky-mouse-tooltip';
 
-class Preview extends React.Component {
+const Preview:FunctionalComponent = () => {
+  const [isMouseTooltipVisible, setIsMouseTooltipVisible] = useState<boolean>(false)
   state = {
     isMouseTooltipVisible: false,
   };
 
-  toggleMouseTooltip = () => {
-    this.setState(prevState => ({ isMouseTooltipVisible: !prevState.isMouseTooltipVisible }));
+  const toggleMouseTooltip = () => {
+    setIsMouseTooltipVisible(!isMouseTooltipVisible)
   };
 
-  render() {
-    return (
-      <div>
-        <button onClick={this.toggleMouseTooltip} style={buttonStyle}>
-          Toggle mouse tooltip
-        </button>
-        <MouseTooltip
-          visible={this.state.isMouseTooltipVisible}
-          offsetX={15}
-          offsetY={10}
-        >
-          <span>Follow the cursor!</span>
-        </MouseTooltip>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <button onClick={toggleMouseTooltip} style={buttonStyle}>
+        Toggle mouse tooltip
+      </button>
+      <MouseTooltip
+        visible={isMouseTooltipVisible}
+        offsetX={15}
+        offsetY={10}
+      >
+        <span>Follow the cursor!</span>
+      </MouseTooltip>
+    </div>
+  );
 }
 ```
 
