@@ -18,10 +18,8 @@ import React from 'react';
 import MouseTooltip from 'react-sticky-mouse-tooltip';
 
 const Preview:FunctionalComponent = () => {
+  
   const [isMouseTooltipVisible, setIsMouseTooltipVisible] = useState<boolean>(false)
-  state = {
-    isMouseTooltipVisible: false,
-  };
 
   const toggleMouseTooltip = () => {
     setIsMouseTooltipVisible(!isMouseTooltipVisible)
